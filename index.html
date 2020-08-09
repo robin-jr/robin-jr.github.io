@@ -1,50 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="icon.png" type="image/png" sizes="16x16" />
-		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="style.css" />
+
+		<title>SortingVisualizer</title>
+
+		<script src="libraries/p5.js"></script>
+		<script src="libraries/p5.dom.js"></script>
+		<script src="libraries/p5.sound.js"></script>
+		<script src="sketch.js"></script>
+		<script src="algorithms.js"></script>
 		<script src="script.js"></script>
-		<title>Students list</title>
 	</head>
+
 	<body>
-		<div class="container">
-			<h1>Enter Your Details Here</h1>
+		<div class="sidenav">
+			<label class="sidehead">Menu</label>
 
-			<div class="form">
-				<form>
-					<p>
-						<label for="name">Name: </label>
-						<input type="text" id="name" />
-					</p>
-					<p>
-						<label for="rollno">Roll Number: </label>
-						<input type="text" id="rollno" />
-					</p>
-					<p>
-						<label for="mail-id">Email: </label>
-						<input type="email" id="mail-id" />
-					</p>
-					<p>
-						<button id="button" colspan="2" onclick="addRow(event)">
-							Submit
-						</button>
-					</p>
-				</form>
+			<a href="#">
+				<label style="font-size: 20px;" for="size">Size</label><br />
+				<input
+					type="range"
+					id="size"
+					min="100"
+					max="1000"
+					onchange="changeSize(value)"
+			/></a>
+			<a href="#">
+				<label style="font-size: 20px;" for="speed">Speed</label><br />
+				<input
+					type="range"
+					id="speed"
+					min="1"
+					max="1000"
+					onchange="changeSpeed(value)"
+			/></a>
+
+			<div class="dropdown">
+				<input
+					type="button"
+					class="dropbtn"
+					id="algo"
+					value="QuickSort"
+				/>
+				<div class="dropdown-content">
+					<a href="#" onclick="changeAlgo(innerHTML);return false;"
+						>QuickSort</a
+					>
+					<a href="#" onclick="changeAlgo(innerHTML);return false;"
+						>MergeSort</a
+					>
+					<a href="#" onclick="changeAlgo(innerHTML);return false;"
+						>BubbleSort</a
+					>
+					<a href="#" onclick="changeAlgo(innerHTML);return false;"
+						>HeapSort</a
+					>
+				</div>
 			</div>
+			<a
+				href="#"
+				style="margin-top: 220px; padding-left: 2px; margin-right: 2px;"
+			>
+				<button class="reset-button" onclick="begin()">Reset</button>
+			</a>
+			<a
+				href="#"
+				style="margin-top: 1px; padding-left: 2px; margin-right: 2px;"
+			>
+				<button class="start-button" onclick="startSorting()">
+					<span>Start </span>
+				</button>
+			</a>
+		</div>
 
-			<h1 style="margin-bottom: 30px;">Students Details</h1>
-
-			<table id="students">
-				<tr>
-					<th>S.No</th>
-					<th>Name</th>
-					<th>Roll Number</th>
-					<th style="column-span: 2;">Email Id</th>
-					<th></th>
-				</tr>
-			</table>
+		<div class="main" style="background-color: #000;">
+			<h1
+				id="main-header"
+				style="padding-top: 20px; display: inline; color: #fff;"
+			></h1>
+			<!-- <h1 style="display: inline; padding-left: 10px;">--In Action</h1> -->
 		</div>
 	</body>
 </html>
