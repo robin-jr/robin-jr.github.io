@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="icon.png" type="image/png" sizes="16x16" />
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<script src="script.js"></script>
+		<title>Students list</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Enter Your Details Here</h1>
+
+			<div class="form">
+				<form>
+					<p>
+						<label for="name">Name: </label>
+						<input type="text" id="name" />
+					</p>
+					<p>
+						<label for="rollno">Roll Number: </label>
+						<input type="text" id="rollno" />
+					</p>
+					<p>
+						<label for="mail-id">Email: </label>
+						<input type="email" id="mail-id" />
+					</p>
+					<p>
+						<button id="button" colspan="2" onclick="addRow(event)">
+							Submit
+						</button>
+					</p>
+				</form>
+			</div>
+
+			<h1 style="margin-bottom: 30px;">Students Details</h1>
+
+			<table id="students">
+				<tr>
+					<th>S.No</th>
+					<th>Name</th>
+					<th>Roll Number</th>
+					<th style="column-span: 2;">Email Id</th>
+					<th></th>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
